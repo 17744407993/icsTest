@@ -1,0 +1,33 @@
+import xlwt
+import os
+
+
+def increaseIP(ip):
+	ip1 = int(ip.split('.')[-1])
+	ip2 = int(ip.split('.')[-2])
+	ip_pre2 = '%s.%s'%(ip.split('.')[0],ip.split('.')[1])
+	for i in range(0,int(1)):
+		# print("## ip1:%s##1" % (ip1))
+		# print("## ip2:%s##2" % (ip2))
+		#print("## ipNew:%s##" % (ipNew))
+		ip1New = ip1 + 1
+		if 2<=ip1+1<=254:
+			ipNew = ip_pre2+'.'+str(ip2)+'.'+str(ip1New)
+			#ip1 = ip1 + 1
+			print("if3")
+		else:
+			ip2New = ip2+(ip1New%254)
+			ip1New = ip1New%254+1
+			print("aaaa## ip1:%s##4" % (ip1))
+			print("aaaa## ip2:%s##5" % (ip2))
+			print("aaaa## ip1New:%s##6" % (ip1New))
+			print("aaaa## ip2New:%s##7" % (ip2New))
+			ipNew = ip_pre2+'.'+str(ip2New)+'.'+str(ip1New)
+			print("aaaa## ipNew:%s##8" % (ip1New))
+			#ip1 = ip1 + 1
+			print("else")
+		print("---## ip1:%s##9" % (ip1))
+		print("---## ip2:%s##10" % (ip2))
+		print ("---## ipNew:%s##11"%(ipNew))
+
+		return ipNew
